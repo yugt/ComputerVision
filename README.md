@@ -95,6 +95,105 @@ These are the tools of the math of computer vision and are needed to work in com
 There is no required textbook for this course.
 Instructor notes will be made available as external reading and readings from the following book will be assigned periodically to deepen the understand of the material.
 All readings are required.
-* Szeliski _Computer Vision: Algorithms and Applications_ published by Springer and available for purchase on various website or as a download (free) at http://szeliski.org/Book/.
+* Szeliski, _Computer Vision: Algorithms and Applications_ published by Springer and available for purchase on various website or as a download (free) at http://szeliski.org/Book/.
+
 Another reference for computer vision is below.
-* Forsyth and Ponce _Computer Vision, A Principled Approach_ Prentice Hall, 2nd Edition, 2011. (ISBN-13: 978-0136085928 ISBN-10: 013608592X) The textbook has a website: http://luthuli.cs.uiuc.edu/~daf/CV2E-site/cv2eindex.html.
+* Forsyth and Ponce, _Computer Vision, A Principled Approach_ Prentice Hall, 2nd Edition, 2011. (ISBN-13: 978-0136085928 ISBN-10: 013608592X) The textbook has a website: http://luthuli.cs.uiuc.edu/~daf/CV2E-site/cv2eindex.html.
+
+#### Course Work and Evaluation
+* Assignments (35%)
+Assignments will be given roughly biweekly throughout the semester.
+Assignments may have analytical components and a programming components.
+The programming components will progressively develop a capable computer vision system.
+All programming will be in Matlab.
+All data for programming assignments will be provided by the instructor.
+Problem sets may be discussed in groups but must be written independently, including programming.
+Over-the-shoulder MATLAB debugging, for example, is not permitted.
+No code from other students, on-line or off-line resources other than that explicitly mentioned in the assignment is permitted.
+
+* Project (15%)
+There will be an end-of-term team project where groups of (<=4) students will select a computer vision project problem, develop a solution and present the fruits of their labor to the class.
+A short writeup will also be required.
+The project implementation can build upon existing data and software, but the key components of the project must be implemented as part of the project.
+
+* Quizzes (20%)
+Quizzes will be given in class roughly bi-weekly.
+The de facto quiz is 10 minutes and presents a combination of rote memory and topic comprehension; if a larger quiz will be given (e.g., in place of a full-out exam, students will be notified within two weeks).
+
+* Exam (20%)
+There will be one exam in mid-November.
+
+* Readings/Annotations (10%)
+All students are required to read the course material when it is assigned before class and provide annotations on it before class.
+We expect to have weekly reading assignments. Due Tuesdays. Information below.
+
+The lowest two grades for quizzes and participation will be dropped. The single lowest assignment will be dropped.
+
+##### Readings and Annotations: why:
+###### Overview
+Students should expect one weekly reading.
+We will post a pdf version on the canvas web site and an annotatable version on nb.engin.umich.edu.
+Students will annotate sections of the text there.
+The annotations will be visible to the student's sub-class (about 20 students rather than the full class of 100+), GSIs and instructor.
+Students can rephrase difficult to understand concepts, fill in confusing steps in derivations, identify errors, provide better ways to illustrate the ideas than the examples in the book/text, ask great questions, and answer (correctly) others questions.
+Students will be graded based on the quantity, quality and timeliness of their annotations.
+One annotation per reading assignment is too little and more than 20 annotations is probably too much.
+Providing 3 excellent annotations, including correct answers to another students good questions, will earn full credit for the week as long as they are completed in time and cover the material reasonably completely (i.e., are not just all in the first section).
+###### Why annotate?
+Annotating the text helps you and us.
+First, you get practice reading technical material.
+Once you graduate, papers and books will be your primary vehicle for learning and learning does not stop when you graduate.
+If you can learn from such texts, you have mastered an important lifelong skill.
+Second, by reading with attention and with an inquiring mind, you take ownership of your learning.
+That skill too will be useful for your whole life (you may want to start reading ahead in some of your other classes to get more out of them; you'll have to read those books at some point anyway!).
+Third, by annotating the text, you reverse the roles of student and teacher: for a change you are the one determining whats wrong or confusing.
+In a traditional class, the teacher tells you what is wrong or confusing about your work.
+When you annotate the text because you are confused, you have identified a problem in the text: you are right and the author is wrong!
+By communicating that confusion to others, you create an opportunity to address the confusion and learn.
+If many people in the class express confusion about a particular topic, we will know that we need to address that confusion in class or online.
+###### How (much) should I annotate? (what we expect)
+Without a lecture first, the reading is your initial (and in some sense primary) exposure to the content of this class.
+It is therefore essential that you study each chapter with an inquisitive mind.
+Your annotations can either be queries, comments, or answers/reactions to queries or comments posted by others.
+When we look at your annotations we want them to reflect the effort you put in your study of the text.
+It is unlikely that that effort will be reflected by just one or two annotations per chapter, unless your annotations are unusually thoughtful and stimulate a deep discussion.
+On the other extreme, 20 per chapter is probably too many to be practical.
+Somewhere in between these two extremes is about right.
+
+##### Annotations: how:
+Your annotations will be evaluated based on quality, quantity, and timeliness.
+Your goal is demonstrating substantive, thorough, timely, and thoughtful reading of the material.
+* Insufficient: This confuses me
+* Better: "This equation appears to contradict (previous equation) or seems counter-intuitive because ..."
+* Insufficient: Yes/No answers to questions without explanation.
+* For more examples, see http://web.eecs.umich.edu/~fessler/course/556/r/nb-example-of-quality.pdf
+
+Final score (per assignment) is the average of the top 3 quality scores (below) × their timeliness scores - 1 point for lack of reasonably even coverage in the text.
+| Quality Score        | Description and Criteria |
+| ------------- |:-------------:|
+| 6      | Demonstrates thorough and thoughtful reading and insightful interpretation of the text. |
+| 2      | Demonstrates reading, but little or only superficial interpretation of the text. |
+| 0      | Does not demonstrate any thoughtful reading of the text. |
+
+Each student must enter a minimum of 3 annotations per reading assignment (This number subject to change).
+
+| Timeliness Factor  | Description and Criteria |
+| ------------- |:-------------:|
+| 1      | Submitted by the reading deadline, which is 11AM Tuesday, gets 1 timeliness factor. |
+| 0.5    | Submitted by Friday midnight, gets 0.5 timeliness. |
+| 0      | Submitted after Friday midnight, get 0 timeliness, but still helpful in learning. |
+
+This timeliness score is computed by machine. Do not miss the deadline, even by a second.
+
+##### Late Work and Missed Exam Policy:
+__No__ late work will be accepted.
+Ample time will be given to complete the assignments; use it wisely.
+Similarly, the date of the exam will be known at least one month in advance.
+Do not miss the exam.
+__No__ make-up exams will be given other than for those University approved reasons.
+This is a firm policy.
+Do not expect special treatment.
+
+##### Regrading:
+Any questions about the grading of a piece of work must be raised within one week of the date that the work was returned by the teaching assistant or the instructor.
+In other words, if you do not pick up your work in a timely fashion, you may forfeit your right to question the grading of your work.
