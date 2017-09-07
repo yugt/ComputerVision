@@ -10,7 +10,7 @@ Jason Corso (jjcorso)
 Siyuan Chen (chsiyuan) and Byungsu Kyle Min (kylemin)
 
 ### Course Webpage:
-http://web.eecs.umich.edu/ ̃jjcorso/t/442F17.
+http://web.eecs.umich.edu/~jjcorso/t/442F17.
 
 ### Canvas LMS Website:
 https://umich.instructure.com/courses/173857.
@@ -42,5 +42,5 @@ Nearly all questions you have about the course, both logistical and technical sh
 Only in the event of a concern of privacy, should you directly email the instructor.
 We also use Nota Bene (NB) for week-to-week readings and idea exchange.
 More details are below.
-* Students are expected to help each other through postings and discussions on the Canvas, Piazza and NB site. In fact, some of
-this is factored into your grade. *
+** Students are expected to help each other through postings and discussions on the Canvas, Piazza and NB site. In fact, some of
+this is factored into your grade. **
