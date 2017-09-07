@@ -169,6 +169,7 @@ Your goal is demonstrating substantive, thorough, timely, and thoughtful reading
 * For more examples, see http://web.eecs.umich.edu/~fessler/course/556/r/nb-example-of-quality.pdf
 
 Final score (per assignment) is the average of the top 3 quality scores (below) × their timeliness scores - 1 point for lack of reasonably even coverage in the text.
+
 | Quality Score        | Description and Criteria |
 | ------------- |:-------------:|
 | 6      | Demonstrates thorough and thoughtful reading and insightful interpretation of the text. |
