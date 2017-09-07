@@ -171,7 +171,7 @@ Your goal is demonstrating substantive, thorough, timely, and thoughtful reading
 Final score (per assignment) is the average of the top 3 quality scores (below) × their timeliness scores - 1 point for lack of reasonably even coverage in the text.
 
 | Quality Score        | Description and Criteria |
-| ------------- |:-------------:|
+| ------------- |:-------------|
 | 6      | Demonstrates thorough and thoughtful reading and insightful interpretation of the text. |
 | 2      | Demonstrates reading, but little or only superficial interpretation of the text. |
 | 0      | Does not demonstrate any thoughtful reading of the text. |
@@ -179,7 +179,7 @@ Final score (per assignment) is the average of the top 3 quality scores (below) 
 Each student must enter a minimum of 3 annotations per reading assignment (This number subject to change).
 
 | Timeliness Factor  | Description and Criteria |
-| ------------- |:-------------:|
+| ------------- |:-------------|
 | 1      | Submitted by the reading deadline, which is 11AM Tuesday, gets 1 timeliness factor. |
 | 0.5    | Submitted by Friday midnight, gets 0.5 timeliness. |
 | 0      | Submitted after Friday midnight, get 0 timeliness, but still helpful in learning. |
