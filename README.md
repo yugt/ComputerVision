@@ -16,7 +16,7 @@ http://web.eecs.umich.edu/~jjcorso/t/442F17.
 https://umich.instructure.com/courses/173857.
 
 ##### Meeting Times / Location:
-* Main Course: TuTh 15:00-14:30 in 2505 GGBL
+* Main Course: TuTh 15:00-16:30 in 2505 GGBL
 * Discussion Sections: 
 1. W 15:30-16:30 in 1311 EECS (kylemin)
 2. W 13:30-14:30 in 1017 DOW (chsiyuan)
