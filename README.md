@@ -1,4 +1,4 @@
-# EECS 442 Comupter Vision
+# EECS 442 Computer Vision
 ## Electrical Engineering and Computer Science
 ## University of Michigan
 ### Syllabus for Fall 2017
