@@ -10,15 +10,17 @@ header+="\usepackage{amsmath}\n";
 header+="\usepackage{multicol}\n";
 header+="\pagenumbering{gobble}\n";
 
-operators=("+","-","\\times","\div");
+operatorslatex=("+","-","\\times","\div");
+operatorsplain=("+","-","*","/");
 
 def column_generator(row):
     c="\\begin{align*}\n";
     for i in range(0,row):
-        l=str(random.randint(1,999));
-        l+=operators[random.randint(0,3)];
-        l+=str(random.randint(1,999));
-        l+="&=\\\\[1em]\n";
+        a=random.randint(1,999);
+        b=random.randint(1,999);
+        o=random.randint(0,3);
+        l=str(a)+operatorslatex[o]+str(b)+"&=\\\\[1em]\n";
+        log.write(str(a)+operatorsplain[o]+str(b)+"\n");
         c+=l;
     return c+"\end{align*}";
 
@@ -49,6 +51,8 @@ def main(row,col,pages):
     m.write("\end{document}");
     m.close();
 
+log=open('check.txt','w');
 main(20,5,100);
+log.close();
 os.system("pdflatex main.tex");
 os.system("rm -f *.aux *.log ../.DS_Store tc*");
