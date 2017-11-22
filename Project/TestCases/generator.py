@@ -51,4 +51,4 @@ def main(row,col,pages):
 
 main(20,5,100);
 os.system("pdflatex main.tex");
-os.system("rm -f !(main.pdf) main.* tc*");
+os.system("rm -f *.aux *.log ../.DS_Store tc*");
