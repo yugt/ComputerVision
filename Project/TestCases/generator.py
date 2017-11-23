@@ -14,13 +14,38 @@ header+="\pagestyle{empty}";
 operatorslatex=("+","-","\\times","\div");
 operatorsplain=("+","-","*","/");
 
-# TODO: integer answer selector 
+
+def equation_generator():
+    o=random.randint(0,3);
+    if o == 0:
+        while True:
+            a = random.randint(0,999);
+            b = random.randint(0,999);
+            if a + b <= 999:
+                return (a,b,o);
+    elif o == 1:
+        while True:
+            a = random.randint(0,999);
+            b = random.randint(0,999);
+            if a - b >= 0 and a - b <= 999:
+                return (a,b,o);
+    elif o == 2:
+        while True:
+            a = random.randint(1,99);
+            b = random.randint(1,99);
+            if a * b <= 999:
+                return (a,b,o);
+    else:
+        while True:
+            a = random.randint(1,999);
+            b = random.randint(1,999);
+            if a % b == 0 and a / b >= 0 and a / b <= 999:
+                return (a,b,o);
+
 def column_generator(row):
     c="\\begin{align*}\n";
     for i in range(0,row):
-        a=random.randint(1,999);
-        b=random.randint(1,999);
-        o=random.randint(0,3);
+        (a,b,o) = equation_generator();
         l=str(a)+operatorslatex[o]+str(b)+"&=\\\\[1em]\n";
         log.write(str(a)+operatorsplain[o]+str(b)+"\n");
         c+=l;
@@ -33,28 +58,35 @@ def page_generator(row,col):
         p+=column_generator(row)+"\n";
     return p+"\end{multicols}";
 
-def files_generator(row, col, pages):
-    for i in range(0,pages):
-        fname="tc"+str(i).zfill(int(ceil(log10(pages))))+".tex";
-        f=open(fname,'w');
-        f.write(page_generator(row,col));
-        f.close()
+def files_generator(page_format, total_pages):
+    cur_page = 0;
+    for (row,col,pages) in page_format:
+        for i in range(0,pages):
+            fname="tc"+str(cur_page).zfill(int(ceil(log10(total_pages))))+".tex";
+            cur_page += 1;
+            f=open(fname,'w');
+            f.write(page_generator(row,col));
+            f.close()
 
 
-def main(row,col,pages):
-    files_generator(row,col,pages);
+def main(page_format):
+    total_pages = 0;
+    for page_tuple in page_format:
+        total_pages += page_tuple[2];
+    files_generator(page_format, total_pages);
 
     m=open('main.tex','w');
     m.write(header);
 
     m.write("\\begin{document}\n");
-    for i in range(0,pages):
-        m.write("\include{tc"+str(i).zfill(int(ceil(log10(pages))))+"}\n")
+    for i in range(0,total_pages):
+        m.write("\include{tc"+str(i).zfill(int(ceil(log10(total_pages))))+"}\n")
     m.write("\end{document}");
     m.close();
 
 log=open('check.txt','w');
-main(20,5,20);
+page_format = [(4,5,1),(5,4,1),(10,4,2),(20,5,2),(5,3,1),(8,2,1)];
+main(page_format);
 log.close();
 os.system("pdflatex main.tex");
 os.system("rm -f *.aux *.log ../.DS_Store ../../.DS_Store tc*");
