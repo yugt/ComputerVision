@@ -9,7 +9,7 @@ imDir='./main/';
 myFiles = dir(fullfile(imDir,'*.png')); %gets all png files in struct
 angles=6*rand(1,length(myFiles));
 test=zeros(1,length(myFiles));
-for k = 40%1:length(myFiles)
+for k = 99:length(myFiles)
     baseFileName = myFiles(k).name;
     fullFileName = fullfile(imDir, baseFileName);
     fprintf(1, 'Now reading %s\n', fullFileName);
@@ -19,7 +19,7 @@ for k = 40%1:length(myFiles)
     % all of your actions for filtering and plotting go here
     test(k)=horizon(Irotated,0.001);
     Iorthogonal=imrotate(Iraw,-horizon(Iraw),'bilinear');
-    superPixelLabel(Iorthogonal);
+    superPixelLabel(imbinarize(Iorthogonal,0.01));
     
 %     Ibw=(imbinarize(Iraw,0.1));
 %     label=superPixelLabel(Ibw);
@@ -30,4 +30,3 @@ for k = 40%1:length(myFiles)
 %     Icrop=imresize(Iorthogonal(row_start:row_end,col_start:col_end),0.5);
 %     imshow(Icrop)
 end
-max(abs(test-angles))
