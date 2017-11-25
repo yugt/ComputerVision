@@ -85,7 +85,16 @@ def main(page_format):
     m.close();
 
 log=open('check.txt','w');
-page_format = [(4,5,1),(5,4,1),(10,4,2),(20,5,2),(5,3,1),(8,2,1)];
+page_format = [(10,3,10),
+        (15,2,10),
+        (10,4,10),
+        (10,5,10),
+        (15,4,10),
+        (20,3,10),
+        (16,5,10),
+        (20,4,10),
+        (18,5,10),
+        (20,5,10)];
 main(page_format);
 log.close();
 os.system("pdflatex main.tex");
