@@ -3,7 +3,7 @@
 %% load the image
 %im = double(imread('porch1.png'))/255;
 
-im = double(imread('RawImages/rotate1.png'))/255;
+im = double(imread('main/b5c08faf93.pdf-100.png'))/255;
 
 %im = double(imread('flower1.jpg'))/255;
 
@@ -17,7 +17,7 @@ im = double(imread('RawImages/rotate1.png'))/255;
 
 
 %% first compute the superpixels on the image we loaded
-[S,C] = slic(im,144);
+[S,C] = slic(im,834);
 cmap = rand(max(S(:)),3);
 mainfig = figure; 
 subplot(2,3,1); imagesc(im); title('input image')
