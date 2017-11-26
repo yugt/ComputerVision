@@ -22,32 +22,32 @@ def equation_generator():
             a = random.randint(0,999);
             b = random.randint(0,999);
             if a + b <= 999:
-                return (a,b,o);
+                return (a,b,o,a+b);
     elif o == 1:
         while True:
             a = random.randint(0,999);
             b = random.randint(0,999);
             if a - b >= 0 and a - b <= 999:
-                return (a,b,o);
+                return (a,b,o,a-b);
     elif o == 2:
         while True:
             a = random.randint(1,99);
             b = random.randint(1,99);
             if a * b <= 999:
-                return (a,b,o);
+                return (a,b,o,a*b);
     else:
         while True:
             a = random.randint(1,999);
             b = random.randint(1,999);
             if a % b == 0 and a / b >= 0 and a / b <= 999:
-                return (a,b,o);
+                return (a,b,o,a/b);
 
 def column_generator(row):
     c="\\begin{align*}\n";
     for i in range(0,row):
-        (a,b,o) = equation_generator();
+        (a,b,o,r) = equation_generator();
         l=str(a)+operatorslatex[o]+str(b)+"&=\\\\[1em]\n";
-        log.write(str(a)+operatorsplain[o]+str(b)+"\n");
+        log.write(str(a)+operatorsplain[o]+str(b)+"="+str(r)+"\n");
         c+=l;
     return c+"\end{align*}";
 
