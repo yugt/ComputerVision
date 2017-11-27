@@ -87,6 +87,7 @@ multiplication_signs(1)=[];
 
 check=[length(addition_signs) length(subtraction_signs)...
     length(multiplication_signs) length(division_signs) -length(equality_signs)];
+disp(check)
 assert(sum(check)==0);
 
 end

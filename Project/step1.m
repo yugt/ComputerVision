@@ -7,8 +7,8 @@ rng(0);
 
 imDir='./main/';
 myFiles = dir(fullfile(imDir,'*.png')); %gets all png files in struct
-angles=6*rand(1,length(myFiles));
-test=zeros(1,length(myFiles));
+angles=30*rand(1,length(myFiles));
+% test=zeros(1,length(myFiles));
 for k = 100:length(myFiles)
     baseFileName = myFiles(k).name;
     fullFileName = fullfile(imDir, baseFileName);
@@ -17,10 +17,11 @@ for k = 100:length(myFiles)
     Irotated=imbinarize(imrotate(Iraw,angles(k)),0.01);
 %     imshow(Irotated);
     % all of your actions for filtering and plotting go here
-    test(k)=horizon(Irotated,0.001);
+%     test(k)=horizon(Irotated,0.001);
     Iorthogonal=imrotate(Iraw,-horizon(Iraw),'bilinear');
     label=superPixelLabel(imbinarize(Iorthogonal',0.01))';
     [label,equal,add,minus,times,divide]=equOpParser(label);
+    segment=eqnSegment(label,equal);
 %     Ibw=(imbinarize(Iraw,0.1));
 %     label=superPixelLabel(Ibw);
 %     [row_start,col_start]=find(Ibw,1,'first');
