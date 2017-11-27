@@ -46,7 +46,7 @@ def column_generator(row):
     c="\\begin{align*}\n";
     for i in range(0,row):
         (a,b,o,r) = equation_generator();
-        l=str(a)+operatorslatex[o]+str(b)+"&=\\\\[1em]\n";
+        l=str(a)+operatorslatex[o]+str(b)+"&="+str(r)+"\\\\[1em]\n";
         log.write(str(a)+operatorsplain[o]+str(b)+"="+str(r)+"\n");
         c+=l;
     return c+"\end{align*}";
