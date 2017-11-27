@@ -2,9 +2,9 @@ function [ label, equality_signs, addition_signs, subtraction_signs, multiplicat
 
 % two digits may be connected to each other
 
-equality_signs=zeros(1,max(max(label)));
-subtraction_signs=zeros(1,max(max(label)));
-division_signs=zeros(1,max(max(label)));
+equality_signs=zeros(max(max(label)),1);
+subtraction_signs=zeros(max(max(label)),1);
+division_signs=zeros(max(max(label)),1);
 for i=1:max(max(label))
     [row, col]=find(label==i);
     if (max(row)-min(row))<(max(col)-min(col))
@@ -55,8 +55,8 @@ end
 % end
 
 % disp(length(equality_signs));
-addition_signs=zeros(1,max(max(label)));
-multiplication_signs=zeros(1,max(max(label)));
+addition_signs=zeros(max(max(label)),1);
+multiplication_signs=zeros(max(max(label)),1);
 
 for i=1:max(max(label))
     [row, col]=find(label==i);
