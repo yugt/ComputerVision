@@ -27,6 +27,8 @@ for k = 100:length(myFiles)
     label=superPixelLabel(imbinarize(Iorthogonal',0.01))';
     [label,equal,add,minus,times,divide]=equOpParser(label);
     [segment,eqns,answers]=eqnSegment(label,equal);
+    [operand_left,operand_right,operator]=...
+        digitOpSeparate(eqns,add,minus,times,divide);
 %     Ibw=(imbinarize(Iraw,0.1));
 %     label=superPixelLabel(Ibw);
 %     [row_start,col_start]=find(Ibw,1,'first');
