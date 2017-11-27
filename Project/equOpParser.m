@@ -22,8 +22,8 @@ for i=1:max(max(label))
             elseif length(samelabel)==3
                 division_signs(i)=samelabel(1);
             end
-            for j=1:length(samelabel)
-                label(label==samelabel(j))=i;
+            for j=2:length(samelabel)
+                label(label==samelabel(j))=samelabel(1);
             end
         end
     end

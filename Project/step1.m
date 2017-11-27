@@ -5,7 +5,7 @@ clc
 rng(0);
 %%%% Load images
 
-imDir='./mainAnswer150/';
+imDir='./mainAnswer300/';
 myFiles = dir(fullfile(imDir,'*.png')); %gets all png files in struct
 angles=30*rand(1,length(myFiles));
 % test=zeros(1,length(myFiles));
