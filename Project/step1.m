@@ -5,7 +5,7 @@ clc
 rng(0);
 %%%% Load images
 
-imDir='./main/';
+imDir='./mainAnswer150/';
 myFiles = dir(fullfile(imDir,'*.png')); %gets all png files in struct
 angles=30*rand(1,length(myFiles));
 % test=zeros(1,length(myFiles));
@@ -13,7 +13,12 @@ for k = 100:length(myFiles)
     baseFileName = myFiles(k).name;
     fullFileName = fullfile(imDir, baseFileName);
     fprintf(1, 'Now reading %s\n', fullFileName);
-    Iraw=imcomplement(rgb2gray(imread(fullFileName)));
+    im=imread(fullFileName);
+    if size(im,3)>1
+        im=rgb2gray(im);
+    end
+    Iraw=imcomplement(im);
+    
     Irotated=imbinarize(imrotate(Iraw,angles(k)),0.01);
 %     imshow(Irotated);
     % all of your actions for filtering and plotting go here
@@ -21,7 +26,7 @@ for k = 100:length(myFiles)
     Iorthogonal=imrotate(Iraw,-horizon(Iraw),'bilinear');
     label=superPixelLabel(imbinarize(Iorthogonal',0.01))';
     [label,equal,add,minus,times,divide]=equOpParser(label);
-    segment=eqnSegment(label,equal);
+    [segment,eqns,answers]=eqnSegment(label,equal);
 %     Ibw=(imbinarize(Iraw,0.1));
 %     label=superPixelLabel(Ibw);
 %     [row_start,col_start]=find(Ibw,1,'first');

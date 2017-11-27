@@ -32,19 +32,21 @@ end
 
 eqn_labels=zeros(length(equality_sign),MAX_EQN_CHAR);
 for i=1:length(equality_sign)
-    imshow(segment==i)
+%     imshow(segment==i)
     u=unique(label(segment==i),'stable');
     eqn_labels(i,1:length(u))=u';
 end
 
 ans_labels=zeros(length(equality_sign),MAX_ANS_CHAR);
-for i=1:length(equality_sign)-1
+for i=1:length(equality_sign)
     [r2,~]=find(label==equality_sign(i),1);
     [r1,c1]=find(label==equality_sign(i),1,'last');
     mid=floor((r1+r2)/2);
-    height=r2-r1;
-    [~,c2]=find(segment==i+1,1);
-    if c1<c2-1
+    height=r1-r2;
+    if i<length(equality_sign)
+        [~,c2]=find(segment==i+1,1);
+    end
+    if c1<c2-1 && i<length(equality_sign)
         window=label(mid-2*height:mid+2*height,c1+1:c2-1);
     else
         window=label(mid-2*height:mid+2*height,c1+1:size(label,2));
