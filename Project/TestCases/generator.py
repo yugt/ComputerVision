@@ -9,7 +9,7 @@ header+="\usepackage[margin=1in]{geometry}\n";
 header+="\usepackage{amsmath}\n";
 header+="\usepackage{multicol}\n";
 header+="\pagenumbering{gobble}\n";
-header+="\pagestyle{empty}";
+header+="\pagestyle{empty}\n";
 
 operatorslatex=("+","-","\\times","\div");
 operatorsplain=("+","-","*","/");

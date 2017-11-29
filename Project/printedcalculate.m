@@ -8,20 +8,17 @@ opleft=zeros(size(operand_left));
 opright=zeros(size(operand_right));
 
 for i=1:size(operand_left,1)
-    for j=1:size(operand_left,2)
-        if operand_left(i,j)>0
+    for j=1:max(size(operand_left,2),size(operand_right,2))
+        if j<=size(operand_left,2) && operand_left(i,j)>0
             opleft(i,j)=recognize(selector(label,operand_left(i,j)));
         end
-    end
-end
-
-for i=1:size(operand_right,1)
-    for j=1:size(operand_right,2)
-        if operand_right(i,j)>0
+        if j<=size(operand_right,2) && operand_right(i,j)>0
             opright(i,j)=recognize(selector(label,operand_right(i,j)));
         end
     end
 end
+
+
 
 base=10.^(size(opleft,2)-1:-1:0)';
 op1=opleft*base;
