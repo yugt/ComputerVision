@@ -98,4 +98,4 @@ page_format = [(10,3,10),
 main(page_format);
 log.close();
 os.system("pdflatex main.tex");
-os.system("rm -f *.aux *.log ../.DS_Store ../../.DS_Store tc*");
+os.system("rm -f *.aux *.log *.fdb_latexmk *.fls ../.DS_Store ../../.DS_Store tc*");
