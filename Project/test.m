@@ -11,9 +11,9 @@ for k=1:length(equal)
             imshow(label~=operand_right(k,j)&label>0);
         end
     end
-    for j=1:size(answers,2)
+    for j=1:size(handwritten,2)
         if(answers(k,j)>0)
-            imshow(label~=answers(k,j)&label>0);
+            imshow(label~=handwritten(k,j)&label>0);
         end
     end
 end

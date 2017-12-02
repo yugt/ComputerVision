@@ -7,13 +7,16 @@ assert(length(operator)==size(operand_left,1));
 opleft=zeros(size(operand_left));
 opright=zeros(size(operand_right));
 
+counter=0;
 for i=1:size(operand_left,1)
     for j=1:max(size(operand_left,2),size(operand_right,2))
         if j<=size(operand_left,2) && operand_left(i,j)>0
-            opleft(i,j)=recognize(selector(label,operand_left(i,j)));
+            opleft(i,j)=recognize(selector(label,operand_left(i,j)),mod(counter,10)); %pred to form base
+            counter=counter+1;
         end
         if j<=size(operand_right,2) && operand_right(i,j)>0
-            opright(i,j)=recognize(selector(label,operand_right(i,j)));
+            opright(i,j)=recognize(selector(label,operand_right(i,j)),mod(counter,10)); % pred to form base
+            counter=counter+1;
         end
     end
 end
