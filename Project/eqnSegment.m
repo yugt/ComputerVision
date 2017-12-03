@@ -9,6 +9,33 @@ segment=zeros(size(label));
 % eqn operator pairer
 % handwritten printed characters separater
 
+% sort equality signs first
+
+pos=zeros(length(equality_sign),2);
+for i=1:length(equality_sign)
+    [pos(i,1),pos(i,2)]=find(label==equality_sign(i),1);
+end
+
+if nnz(hist(pos(:,2)))>1
+    d=(max(pos(:,2))-min(pos(:,2)))/(nnz(hist(pos(:,2)))-1);
+    pos(:,2)=round((pos(:,2)-min(pos(:,2)))/d)+1;
+    pos=[equality_sign, pos];
+    counter=1;
+    pos=sortrows(pos,[3 2]);
+    pos(1,2)=1;
+    for i=2:length(equality_sign)
+        if pos(i,3)==pos(i-1,3)
+            counter=counter+1;
+            pos(i,2)=counter;
+        else
+            counter=1;
+            pos(i,2)=counter;
+        end
+    end
+    pos=sortrows(pos,[2 3]);
+    equality_sign=pos(:,1);
+end
+
 for i=1:length(equality_sign)
     % left search
 %     imshow(label==sign(i));
