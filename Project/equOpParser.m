@@ -12,15 +12,14 @@ for i=1:max(max(label))
             d=max(col)-min(col);
             samelabel=unique(label(min(row)-d:max(row)+d,min(col):max(col)));
             samelabel(1)=[];
-            if length(samelabel)==1
-                subtraction_signs(i)=samelabel(1);
-            elseif length(samelabel)==2 %equality_sign suspect
-                [row,col]=find(label==samelabel(2));
-                if(max(row)-min(row)<0.2*(max(col)-min(col)))
+            [samelabel,type]=opParser(label,samelabel);
+            switch type
+                case 1
+                    subtraction_signs(i)=samelabel(1);
+                case 2
                     equality_signs(i)=samelabel(1);
-                end
-            elseif length(samelabel)==3
-                division_signs(i)=samelabel(1);
+                case 3
+                    division_signs(i)=samelabel(1);
             end
             for j=2:length(samelabel)
                 label(label==samelabel(j))=samelabel(1);

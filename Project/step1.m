@@ -5,7 +5,7 @@ clc
 rng(0);
 %%%% Load images
 
-imDir='./Standard/';
+imDir='./RealTest/';
 myFiles = dir(fullfile(imDir,'*.png')); %gets all png files in struct
 angles=0*rand(1,length(myFiles));
 % test=zeros(1,length(myFiles));
@@ -25,7 +25,7 @@ for k = 1:length(myFiles)
     %	test(k)=horizon(Irotated,0.001);
 %     Iorthogonal=imrotate(Iraw,-horizon(Iraw),'bilinear');
     %	label=superPixelLabel(imbinarize(Iorthogonal',0.01))';
-    label=labelmatrix(bwconncomp(Iraw'));
+    label=labelmatrix(bwconncomp((Iraw')));
     [label,equal,add,minus,times,divide]=equOpParser(label');
     [segment,eqns,handwritten]=eqnSegment(label,equal);
     [operand_left,operand_right,operator,handwritten]=...

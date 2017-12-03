@@ -12,7 +12,7 @@ for k=1:length(equal)
         end
     end
     for j=1:size(handwritten,2)
-        if(answers(k,j)>0)
+        if(handwritten(k,j)>0)
             imshow(label~=handwritten(k,j)&label>0);
         end
     end
