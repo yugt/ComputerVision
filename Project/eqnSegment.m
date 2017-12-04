@@ -39,8 +39,12 @@ end
 for i=1:length(equality_sign)
     % left search
 %     imshow(label==sign(i));
-    [r1,c1]=find(label==equality_sign(i),1);
-    [r2,c2]=find(label==equality_sign(i),1,'last');
+    [r1,c1]=find(label==equality_sign(i),10);
+    r1=min(r1);
+    c1=min(c1);
+    [r2,c2]=find(label==equality_sign(i),10,'last');
+    r2=max(r2);
+    c2=max(c2);
     mid=floor((r1+r2)/2);
     width=c2-c1;
     height=r2-r1;

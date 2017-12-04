@@ -5,11 +5,11 @@ clc
 rng(0);
 %%%% Load images
 
-imDir='./RealTest/';
+imDir='./Standard/';
 myFiles = dir(fullfile(imDir,'*.png')); %gets all png files in struct
 angles=0*rand(1,length(myFiles));
 % test=zeros(1,length(myFiles));
-for k = 4:length(myFiles)
+for k = 1:length(myFiles)
     baseFileName = myFiles(k).name;
     fullFileName = fullfile(imDir, baseFileName);
     fprintf(1, 'Now reading %s\n', fullFileName);

@@ -22,25 +22,25 @@ if pred>=0 && pred<=9
     base=[];
     switch digit
         case 0
-            load('./PrintedDigitCases/d0.mat','-mat','base');
+            load('./handwritten/d0.mat','-mat','base');
         case 1
-            load('./PrintedDigitCases/d1.mat','-mat','base');
+            load('./handwritten/d1.mat','-mat','base');
         case 2
-            load('./PrintedDigitCases/d2.mat','-mat','base');
+            load('./handwritten/d2.mat','-mat','base');
         case 3
-            load('./PrintedDigitCases/d3.mat','-mat','base');
+            load('./handwritten/d3.mat','-mat','base');
         case 4
-            load('./PrintedDigitCases/d4.mat','-mat','base');
+            load('./handwritten/d4.mat','-mat','base');
         case 5
-            load('./PrintedDigitCases/d5.mat','-mat','base');
+            load('./handwritten/d5.mat','-mat','base');
         case 6
-            load('./PrintedDigitCases/d6.mat','-mat','base');
+            load('./handwritten/d6.mat','-mat','base');
         case 7
-            load('./PrintedDigitCases/d7.mat','-mat','base');
+            load('./handwritten/d7.mat','-mat','base');
         case 8
-            load('./PrintedDigitCases/d8.mat','-mat','base');
+            load('./handwritten/d8.mat','-mat','base');
         case 9
-            load('./PrintedDigitCases/d9.mat','-mat','base');
+            load('./handwritten/d9.mat','-mat','base');
     end
 
     base=[base vec];
@@ -48,25 +48,35 @@ if pred>=0 && pred<=9
 
     switch digit
         case 0
-            save('./PrintedDigitCases/d0.mat','base','-mat');
+            d0=base;
+            save('./handwritten/d0.mat','d0','-mat');
         case 1
-            save('./PrintedDigitCases/d1.mat','base','-mat');
+            d1=base;
+            save('./handwritten/d1.mat','d1','-mat');
         case 2
-            save('./PrintedDigitCases/d2.mat','base','-mat');
+            d2=base;
+            save('./handwritten/d2.mat','d2','-mat');
         case 3
-            save('./PrintedDigitCases/d3.mat','base','-mat');
+            d3=base;
+            save('./handwritten/d3.mat','d3','-mat');
         case 4
-            save('./PrintedDigitCases/d4.mat','base','-mat');
+            d4=base;
+            save('./handwritten/d4.mat','d4','-mat');
         case 5
-            save('./PrintedDigitCases/d5.mat','base','-mat');
+            d5=base;
+            save('./handwritten/d5.mat','d5','-mat');
         case 6
-            save('./PrintedDigitCases/d6.mat','base','-mat');
+            d6=base;
+            save('./handwritten/d6.mat','d6','-mat');
         case 7
-            save('./PrintedDigitCases/d7.mat','base','-mat');
+            d7=base;
+            save('./handwritten/d7.mat','d7','-mat');
         case 8
-            save('./PrintedDigitCases/d8.mat','base','-mat');
+            d8=base;
+            save('./handwritten/d8.mat','d8','-mat');
         case 9
-            save('./PrintedDigitCases/d9.mat','base','-mat');
+            d9=base;
+            save('./handwritten/d9.mat','d9','-mat');
     end
 end
 
