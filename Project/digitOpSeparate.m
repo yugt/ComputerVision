@@ -1,4 +1,4 @@
-function [ op_left,op_right,operators,answers ] = digitOpSeparate( eqns,add,minus,times,divide,answers )
+function [ op_left,op_right,operators,answers ] = digitOpSeparate( label, eqns,add,minus,times,divide,answers )
 
 operators=zeros(size(eqns,1),1);
 op_left=zeros(size(eqns));

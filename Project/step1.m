@@ -29,7 +29,7 @@ for k = 1:length(myFiles)
     [label,equal,add,minus,times,divide]=equOpParser(label');
     [segment,eqns,handwritten]=eqnSegment(label,equal);
     [operand_left,operand_right,operator,handwritten]=...
-        digitOpSeparate(eqns,add,minus,times,divide,handwritten);
+        digitOpSeparate(label,eqns,add,minus,times,divide,handwritten);
     answers=printedcalculate(label,operand_left,operand_right,operator);
     
     %	Ibw=(imbinarize(Iraw,0.1));
