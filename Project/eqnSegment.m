@@ -61,7 +61,7 @@ for i=1:length(equality_sign)
     c2=max(c2);
     mid=floor((r1+r2)/2);
     width=c2-c1;
-    height=r2-r1;
+    height=floor(max(diff(pos(:,2)))/4);
     for j=1:MAX_EQN_CHAR
         window=label(mid-2*height:mid+2*height,c1-j*width:c1-(j-1)*width-1);
         vals=unique(window(window>0));
@@ -105,15 +105,6 @@ for i=1:length(equality_sign)
     end
 end
 
-area=zeros(nnz(ans_labels),1);
-k=1;
-for i=1:size(ans_labels,1)
-    for j=1:size(ans_labels,2)
-        if ans_labels(i,j)>0
-            area(k)=nnz(label==ans_labels(i,j));
-        end
-    end
-end
 
 
 

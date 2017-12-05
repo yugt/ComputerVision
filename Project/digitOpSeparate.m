@@ -1,4 +1,4 @@
-function [ op_left,op_right,operators,answers ] = digitOpSeparate( label, eqns,add,minus,times,divide,answers )
+function [ op_left,op_right,operators,answers ] = digitOpSeparate( eqns,add,minus,times,divide,answers )
 
 operators=zeros(size(eqns,1),1);
 op_left=zeros(size(eqns));
@@ -51,11 +51,18 @@ end
 function [input]=regularize(input)
 
 for i=1:size(input,1)
-    for j=size(input,2):-1:1
-        if input(i,j)>0
-            input(i,:)=circshift(input(i,:),size(input,2)-j);
-        end
+    while input(i,end)==0
+        input(i,:)=circshift(input(i,:),1);
     end
+%     for j=size(input,2):-1:1
+%         if input(i,j)>0
+%             pos=j;
+%         end
+%         
+%     end
+%     if pos>0
+%         input(i,:)=circshift(input(i,:),size(input,2)-j);
+%     end
 end
 
 end

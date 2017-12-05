@@ -5,7 +5,9 @@ clc
 rng(0);
 %%%% Load images
 
-imDir='./Standard/';
+
+
+imDir='./mainAnswer150/';
 myFiles = dir(fullfile(imDir,'*.png')); %gets all png files in struct
 angles=0*rand(1,length(myFiles));
 % test=zeros(1,length(myFiles));
@@ -26,11 +28,15 @@ for k = 1:length(myFiles)
 %     Iorthogonal=imrotate(Iraw,-horizon(Iraw),'bilinear');
     %	label=superPixelLabel(imbinarize(Iorthogonal',0.01))';
     label=labelmatrix(bwconncomp((Iraw')));
+    label=denoise(label);
     [label,equal,add,minus,times,divide]=equOpParser(label');
     [segment,eqns,handwritten]=eqnSegment(label,equal);
     [operand_left,operand_right,operator,handwritten]=...
-        digitOpSeparate(label,eqns,add,minus,times,divide,handwritten);
-    answers=printedcalculate(label,operand_left,operand_right,operator);
+        digitOpSeparate(eqns,add,minus,times,divide,handwritten);
+    [operand_left,operand_right,answers]...
+        =printedcalculate(label,operand_left,operand_right,operator);
+    handwritten=handwrittenPredict(label,handwritten);
+    writeResults(operand_left,operator,operand_right,handwritten);
     
     %	Ibw=(imbinarize(Iraw,0.1));
     %	label=superPixelLabel(Ibw);
