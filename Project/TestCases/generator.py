@@ -42,20 +42,26 @@ def equation_generator():
             if a % b == 0 and a / b >= 0 and a / b <= 999:
                 return (a,b,o,a/b);
 
-def column_generator(row):
+def column_generator(row,check_list):
     c="\\begin{align*}\n";
+    check_list.append([]);
     for i in range(0,row):
         (a,b,o,r) = equation_generator();
         l=str(a)+operatorslatex[o]+str(b)+"&="+str(r)+"\\\\[1em]\n";
-        log.write(str(a)+operatorsplain[o]+str(b)+"="+str(r)+"\n");
+        check_list[-1].append(str(a)+operatorsplain[o]+str(b)+"="+str(r)+"\n");
+        #log.write(str(a)+operatorsplain[o]+str(b)+"="+str(r)+"\n");
         c+=l;
     return c+"\end{align*}";
 
 def page_generator(row,col):
     p="\\begin{multicols}{"+str(col)+"}\n";
     p+="\\noindent";
+    check_list=[];
     for i in range(0,col):
-        p+=column_generator(row)+"\n";
+        p+=column_generator(row,check_list)+"\n";
+    for i in range(0,row):
+        for j in range(0, col):
+            log.write(check_list[j][i]);
     return p+"\end{multicols}";
 
 def files_generator(page_format, total_pages):
@@ -97,5 +103,5 @@ page_format = [(10,3,10),
         (20,5,10)];
 main(page_format);
 log.close();
-os.system("pdflatex main.tex");
+# os.system("pdflatex main.tex");
 os.system("rm -f *.aux *.log *.fdb_latexmk *.fls ../.DS_Store ../../.DS_Store tc*");
