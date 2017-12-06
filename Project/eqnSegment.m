@@ -11,17 +11,30 @@ segment=zeros(size(label));
 
 % sort equality signs first
 
-pos=zeros(length(equality_sign),6);
+pos=zeros(length(equality_sign),7);
 for i=1:length(equality_sign)
     [pos(i,2),pos(i,3)]=find(label==equality_sign(i),1);
 end
 pos(:,1)=equality_sign;
+pos(:,7)=pos(:,2)+pos(:,3);
 
 if nnz(hist(pos(:,3)))>1 && std(pos(:,3))>10
     d=(max(pos(:,3))-min(pos(:,3)))/(nnz(hist(pos(:,3)))-1);
     pos(:,4)=round((pos(:,3)-min(pos(:,3)))/d)+1;
-    pos=sortrows(pos,[4 3]);
+    pos=sortrows(pos,7);
+    firstrow=pos(1,:);
+    lastrow=pos(end,:);
+    pos=sortrows(pos(2:end-1,:),[4 3]);
+    pos=[firstrow; pos; lastrow];
+    
     pos(2:end,6)=diff(pos(:,3));
+    for i=1:max(pos(:,4))
+        ind=pos(:,4)==i;
+        temp=pos(ind,:);
+        temp=sortrows(temp,[2 3]);
+        pos(ind,:)=temp;
+    end
+    
     counter=1;
     pos(1,5)=1;
     for i=2:length(equality_sign)
@@ -63,7 +76,8 @@ for i=1:length(equality_sign)
     width=c2-c1;
     height=floor(max(diff(pos(:,2)))/4);
     for j=1:MAX_EQN_CHAR
-        window=label(mid-2*height:mid+2*height,c1-j*width:c1-(j-1)*width-1);
+        window=label(max(1,mid-2*height):min(mid+2*height,size(label,1)),...
+            max(c1-j*width,1):min((c1-(j-1)*width-1),size(label,2)));
         vals=unique(window(window>0));
         if isempty(vals)
             break

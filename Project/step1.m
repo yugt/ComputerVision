@@ -7,11 +7,11 @@ rng(0);
 
 
 
-imDir='./Standard/';
+imDir='./RealTest/';
 myFiles = dir(fullfile(imDir,'*.png')); %gets all png files in struct
 angles=0*rand(1,length(myFiles));
 % test=zeros(1,length(myFiles));
-for k = 2:length(myFiles)
+for k = 6:length(myFiles)
     baseFileName = myFiles(k).name;
     fullFileName = fullfile(imDir, baseFileName);
     fprintf(1, 'Now reading %s\n', fullFileName);
@@ -36,7 +36,7 @@ for k = 2:length(myFiles)
     [operand_left,operand_right,answers]...
         =printedcalculate(label,operand_left,operand_right,operator);
     handwritten=handwrittenPredict(label,handwritten);
-    writeResults(operand_left,operator,operand_right,handwritten);
+    % writeResults(operand_left,operator,operand_right,handwritten);
     
     %	Ibw=(imbinarize(Iraw,0.1));
     %	label=superPixelLabel(Ibw);
