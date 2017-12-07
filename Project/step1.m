@@ -33,6 +33,7 @@ for k = 9:length(myFiles)
     [segment,eqns,handwritten]=eqnSegment(label,equal);
     [operand_left,operand_right,operator,handwritten]=...
         digitOpSeparate(eqns,add,minus,times,divide,handwritten);
+    test;
     [operand_left,operand_right,answers]...
         =printedcalculate(label,operand_left,operand_right,operator);
     handwritten=handwrittenPredict(label,handwritten);
