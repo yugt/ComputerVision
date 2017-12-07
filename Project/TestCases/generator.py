@@ -47,7 +47,7 @@ def column_generator(row,check_list):
     check_list.append([]);
     for i in range(0,row):
         (a,b,o,r) = equation_generator();
-        l=str(a)+operatorslatex[o]+str(b)+"&="+str(r)+"\\\\[1em]\n";
+        l="\mathtt{"+str(a)+"}"+operatorslatex[o]+"\mathtt{"+str(b)+"}"+"&="+"\\\\[1em]\n";
         check_list[-1].append(str(a)+operatorsplain[o]+str(b)+"="+str(r)+"\n");
         #log.write(str(a)+operatorsplain[o]+str(b)+"="+str(r)+"\n");
         c+=l;
@@ -103,5 +103,5 @@ page_format = [(10,3,10),
         (20,5,10)];
 main(page_format);
 log.close();
-# os.system("pdflatex main.tex");
+os.system("pdflatex main.tex");
 os.system("rm -f *.aux *.log *.fdb_latexmk *.fls ../.DS_Store ../../.DS_Store tc*");

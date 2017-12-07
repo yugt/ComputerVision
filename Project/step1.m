@@ -11,7 +11,7 @@ imDir='./RealTest/';
 myFiles = dir(fullfile(imDir,'*.png')); %gets all png files in struct
 angles=0*rand(1,length(myFiles));
 % test=zeros(1,length(myFiles));
-for k = 9:length(myFiles)
+for k = 2:length(myFiles)
     baseFileName = myFiles(k).name;
     fullFileName = fullfile(imDir, baseFileName);
     fprintf(1, 'Now reading %s\n', fullFileName);
@@ -20,19 +20,22 @@ for k = 9:length(myFiles)
         im=rgb2gray(im);
     end
     Iraw=imcomplement(im);
-    
-%     Irotated=imbinarize(imrotate(Iraw,angles(k)),0.01);
+%     Irotated=imbinarize(imrotate(Iraw,-2),0.01);
+%     imshow(imcomplement(Irotated));
     %	imshow(Irotated);
     %	all of your actions for filtering and plotting go here
     %	test(k)=horizon(Irotated,0.001);
-%     Iorthogonal=imrotate(Iraw,-horizon(Iraw),'bilinear');
+    horizon(Iraw,.01)
+    Iorthogonal=imrotate(Iraw,-horizon(Iraw,.01),'bilinear');
+    imshow(Iorthogonal>0);
     %	label=superPixelLabel(imbinarize(Iorthogonal',0.01))';
-    label=labelmatrix(bwconncomp((Iraw')));
+    label=labelmatrix(bwconncomp((Iorthogonal')));
     label=denoise(label);
     [label,equal,add,minus,times,divide]=equOpParser(label');
     [segment,eqns,handwritten]=eqnSegment(label,equal);
     [operand_left,operand_right,operator,handwritten]=...
         digitOpSeparate(eqns,add,minus,times,divide,handwritten);
+    test;
     [operand_left,operand_right,answers]...
         =printedcalculate(label,operand_left,operand_right,operator);
     handwritten=handwrittenPredict(label,handwritten);
