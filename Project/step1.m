@@ -5,13 +5,11 @@ clc
 rng(0);
 %%%% Load images
 
-
-
 imDir='./RealTest/';
 myFiles = dir(fullfile(imDir,'*.png')); %gets all png files in struct
 angles=0*rand(1,length(myFiles));
 % test=zeros(1,length(myFiles));
-for k = 2:length(myFiles)
+for k = 1:length(myFiles)
     baseFileName = myFiles(k).name;
     fullFileName = fullfile(imDir, baseFileName);
     fprintf(1, 'Now reading %s\n', fullFileName);
@@ -25,11 +23,11 @@ for k = 2:length(myFiles)
     %	imshow(Irotated);
     %	all of your actions for filtering and plotting go here
     %	test(k)=horizon(Irotated,0.001);
-    horizon(Iraw,.01)
-    Iorthogonal=imrotate(Iraw,-horizon(Iraw,.01),'bilinear');
-    imshow(Iorthogonal>0);
+%     horizon(Iraw,.01,'fft')
+%     Iorthogonal=imrotate(Iraw,-horizon(Iraw,.01,'fft'),'bilinear');
+%     imshow(Iorthogonal>0);
     %	label=superPixelLabel(imbinarize(Iorthogonal',0.01))';
-    label=labelmatrix(bwconncomp((Iorthogonal')));
+    label=labelmatrix(bwconncomp((Iraw')));
     label=denoise(label);
     [label,equal,add,minus,times,divide]=equOpParser(label');
     [segment,eqns,handwritten]=eqnSegment(label,equal);
