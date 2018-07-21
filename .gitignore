@@ -1,4 +1,11 @@
-Homework/
 ProjectWriteUp/
 *.json
 *.DS_Store
+main.*
+!main.tex
+*.aux
+*.log
+*.p
+.vscode/
+*.DS_Store
+*-ubyte

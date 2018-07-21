@@ -1,0 +1,61 @@
+\documentclass[10pt]{article}
+% \usepackage[utf8]{inputenc}
+\usepackage[letterpaper, margin=1in, headheight=105pt]{geometry}
+\usepackage{subcaption}
+\usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{xparse}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=red,anchorcolor=yellow,
+citecolor=green,urlcolor=cyan,filecolor=brown,menucolor=brown]{hyperref}
+% \usepackage{calligra}
+% \usepackage{titlesec} % screw the fancyhdr
+% \usepackage{comment}
+\usepackage[numbered,framed]{matlab-prettifier}
+% /usr/share/texlive incomplete
+% /usr/local/texlive complete 2017
+
+\lstset{language=python,basicstyle=\ttfamily,keywordstyle=\color{blue}\ttfamily,
+stringstyle=\color{red}\ttfamily,commentstyle=\color{green}\ttfamily,morecomment=[l][\color{magenta}]{\#}}
+
+\geometry{letterpaper}
+\pagestyle{fancy}
+% \lhead{\href{https://mcommunity.umich.edu/\#search:yugtmath}{UMID: 97318705}}
+% \rhead{\href{mailto:yugtmath@umich.edu}{yugtmath@umich.edu}}
+% \chead{\href{http://www-personal.umich.edu/~yugtmath}{\calligra{Guangting Yu}}}
+\lfoot{\href{https://umich.instructure.com/courses/173857}{\textbf{University of Michigan, Ann Arbor}}}
+\rfoot{\href{https://github.com/yugt/ComupterVision}{\textbf{EECS 442 Computer Vision, F2017}}}
+
+% \renewcommand{\thesection}{HW \arabic{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+% \titleformat{\subsection}{\normalfont\large\bfseries}{Problem \thesubsection:}{5pt}{}
+
+\lstset{xleftmargin=.05\textwidth, xrightmargin=0.02\textwidth}
+\title{EECS 442 Computer Vision}
+% \author{\calligra{Guangting Yu}\textrm{,}\hspace{5pt} \texttt{yugtmath}}
+\author{Guangting Yu\textrm{,}\hspace{5pt} \texttt{yugtmath}}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+
+\include{hw1/hw1}
+\include{hw2/hw2}
+\include{hw3/hw3}
+\include{hw4/hw4}
+\include{hw5/hw5}
+\include{hw6/hw6}
+
+\end{document}
